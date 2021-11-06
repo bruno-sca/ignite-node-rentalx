@@ -1,4 +1,5 @@
 import { getRepository, Repository } from 'typeorm';
+
 import { Category } from '../../entities/Category';
 import {
   ICategoriesRepository,
@@ -19,11 +20,13 @@ class CategoriesRepository implements ICategoriesRepository {
   }
 
   async list(): Promise<Category[]> {
-    return await this.repository.find();
+    const specifications = await this.repository.find();
+    return specifications;
   }
 
   async findByName(name: string): Promise<Category> {
-    return await this.repository.findOne({ name });
+    const specification = await this.repository.findOne({ name });
+    return specification;
   }
 }
 
