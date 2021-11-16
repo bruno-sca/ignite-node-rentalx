@@ -17,7 +17,7 @@ class CreateCarController {
       category_id,
     } = request.body;
 
-    const car = createCarUseCase.execute({
+    const car = await createCarUseCase.execute({
       name,
       description,
       daily_rate,
