@@ -41,8 +41,8 @@ class CreateRentalUseCase {
       throw new AppError('User already has an active rental!');
 
     const compare = this.dateProvider.hourDiff(
-      expected_return_date,
-      this.dateProvider.dateNow()
+      this.dateProvider.dateNow(),
+      expected_return_date
     );
 
     if (compare < minRentalDuration) throw new AppError('Invalid return time!');

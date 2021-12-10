@@ -10,7 +10,7 @@ class CreateRentalController {
 
     const createRentalUseCase = container.resolve(CreateRentalUseCase);
 
-    const rental = createRentalUseCase.execute({
+    const rental = await createRentalUseCase.execute({
       car_id,
       expected_return_date,
       user_id: id,
