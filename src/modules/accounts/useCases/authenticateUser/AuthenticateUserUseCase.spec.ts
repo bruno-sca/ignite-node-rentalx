@@ -38,20 +38,20 @@ describe('Authenticate User', () => {
   });
 
   it('Should not be able to authenticate an non-existing user', async () => {
-    expect(async () => {
-      await authenticateUserUseCase.execute({
+    await expect(
+      authenticateUserUseCase.execute({
         email: '123',
         password: user.password,
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError('Incorrect email or password!', 401));
   });
 
   it('Should not be able to authenticate an user with incorrect password', async () => {
-    expect(async () => {
-      await authenticateUserUseCase.execute({
+    await expect(
+      authenticateUserUseCase.execute({
         email: user.email,
         password: '123',
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError('Incorrect email or password!'));
   });
 });
