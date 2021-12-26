@@ -9,7 +9,7 @@ export async function ensureAdmin(
 ) {
   const { isAdmin } = request.user;
 
-  if (!isAdmin) throw new AppError('User isnt admin', 401);
+  if (!isAdmin) throw new AppError('User isnt admin', 403);
 
   return next();
 }
