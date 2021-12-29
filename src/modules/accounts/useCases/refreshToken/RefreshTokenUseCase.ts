@@ -22,10 +22,7 @@ class RefreshTokenUseCase {
 
   async execute(token: string): Promise<string> {
     const { secret_token, secret_refresh_token, expires_in_token } = auth;
-    const { sub: user_id, email } = verify(
-      token,
-      secret_refresh_token
-    ) as IPayload;
+    const { sub: user_id } = verify(token, secret_refresh_token) as IPayload;
 
     const userToken = await this.usersTokensRepository.matchRefreshToken(
       user_id,

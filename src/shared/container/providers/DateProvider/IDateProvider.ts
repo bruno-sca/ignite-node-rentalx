@@ -5,6 +5,7 @@ interface IDateProvider {
   convertToUTC(date: Date): string;
   dateNow(): Date;
   addDays(days: number): Date;
+  addMinutes(days: number): Date;
 }
 
 export { IDateProvider };
