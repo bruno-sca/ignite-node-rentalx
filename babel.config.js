@@ -1,6 +1,6 @@
 module.exports = {
   presets: [
-    ['@babel/preset-env', { targets: { node: 'current' }, loose: true }],
+    ['@babel/preset-env', { targets: { node: 'current' } }],
     '@babel/preset-typescript',
   ],
   plugins: [
@@ -8,11 +8,11 @@ module.exports = {
       'module-resolver',
       {
         alias: {
-          '@modules/': ['./src/modules/'],
-          '@config/': ['./src/config/'],
-          '@shared/': ['./src/shared/'],
-          '@errors/': ['./src/shared/errors/'],
-          '@utils/': ['./src/utils/'],
+          '@modules': './src/modules',
+          '@config': './src/config',
+          '@shared': './src/shared',
+          '@errors': './src/shared/errors',
+          '@utils': './src/utils',
         },
       },
     ],
